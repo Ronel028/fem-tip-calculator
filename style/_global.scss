@@ -1,0 +1,17 @@
+small{
+    font-size: 14px;
+    font-weight: 700;
+    color: $dark-grayish-cyan-1;
+}
+small.error-msg{
+    color: red;
+}
+small.very-small{
+    font-size: 12px;
+}
+input[type="number"]{
+    background-color: $light-grayish-cyan-2;
+}
+button{
+    cursor: pointer;
+}
