@@ -38,6 +38,7 @@
 @media (max-width: 400px) {
   .main-container .container {
     width: 100%;
+    height: 100vh;
   }
 }
 
@@ -49,6 +50,12 @@
   .main-container .container img.logo {
     margin-top: 46px;
     margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-container .container img.logo {
+    padding-top: 106px;
   }
 }
 
@@ -100,6 +107,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (max-width: 400px) {
+  .main-container .container .card .left-container {
+    padding-top: 45px;
+  }
 }
 
 .main-container .container .card .bill-input-field, .main-container .container .card .people-input-field {
@@ -284,6 +297,12 @@
   padding-right: 20px;
   padding-bottom: 12px;
   border-radius: 12px;
+}
+
+@media (max-width: 400px) {
+  .main-container .container .right-container {
+    padding-bottom: 10px;
+  }
 }
 
 @media (max-width: 955px) {
