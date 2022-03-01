@@ -24,20 +24,28 @@ function billValue(){
      bill = parseFloat(billInput.value);
 
      if(bill < 0){
-          billInput.value = ' ';
+          billInput.value = '';
           bill = 0;
      }
-
+     return bill
      calculateTip();
 }
 
 // function for custom tip
 function customTipInput(){
-     tipButton.forEach(button => button.classList.remove('active-state-button'));
-     inputCustomTip = parseInt(customTip.value)/100;
-     percentage = inputCustomTip;
 
-     calculateTip();
+     if(inputCustomTip < 0){
+          customTip.value = '';
+          inputCustomTip = 0;
+     }
+     else{
+          tipButton.forEach(button => button.classList.remove('active-state-button'));
+          inputCustomTip = parseInt(customTip.value)/100;
+          percentage = inputCustomTip;
+     
+          calculateTip();
+     }
+     return inputCustomTip;
 }
 
 // function for people input
