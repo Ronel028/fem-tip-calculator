@@ -25,10 +25,10 @@ function billValue(){
 
      if(bill < 0){
           billInput.value = '';
-          bill = 0;
+          bill = 0; 
      }
-     return bill
-     calculateTip();
+  
+     totalTipAmount(tAmount, total);
 }
 
 // function for custom tip
@@ -42,17 +42,16 @@ function customTipInput(){
           tipButton.forEach(button => button.classList.remove('active-state-button'));
           inputCustomTip = parseInt(customTip.value)/100;
           percentage = inputCustomTip;
-     
-          calculateTip();
+      
+          totalTipAmount(tAmount, total);
      }
-     return inputCustomTip;
 }
 
 // function for people input
 function peopleInput(){
      numberPeopleInput = parseInt(numberPeople.value);
-      
-     calculateTip();
+     console.log(numberPeopleInput);
+     totalTipAmount(tAmount, total);
 
      let errorMessage = document.querySelector('.error-msg');
      if(numberPeopleInput === 0 || numberPeopleInput < 0){
@@ -78,19 +77,56 @@ tipButton.forEach(function(btn){
 
 
           percentage = parseInt(e.target.innerText)/100; 
-          calculateTip();       
+          // calculateTip();  
+          console.log(percentage) 
+          totalTipAmount(tAmount, total);
      })
 });
-
+ 
 // Calculate tip
 
-function calculateTip(){
+// function calculateTip(){
 
+//      let tipAmount = ((bill * percentage)/numberPeopleInput).toFixed(2);
+//      tAmount.textContent = tipAmount;
+
+//      let totalAmount = ((bill + parseInt(tipAmount))/numberPeopleInput).toFixed(2);
+//      total.textContent = totalAmount;
+
+// }
+function totalTipAmount(a, b){
+     a.textContent = tipAmount();
+     b.textContent = totalAmount();
+}
+
+function tipAmount(){
+
+     let defaultValue = '0.00';
      let tipAmount = ((bill * percentage)/numberPeopleInput).toFixed(2);
-     tAmount.textContent = tipAmount;
 
-     let totalAmount = ((bill + parseInt(tipAmount))/numberPeopleInput).toFixed(2);
-     total.textContent = totalAmount;
+    
+     if(!isNaN(tipAmount)){
+          return tipAmount;
+     }
+     else{
+          return defaultValue;
+     }
+     
+}
+
+function totalAmount(){
+
+     let defaultValue = '0.00';
+     let totalAmount = ((bill + parseInt(tipAmount()))/numberPeopleInput).toFixed(2);
+
+    
+     if(!isNaN(totalAmount)){
+          return totalAmount;
+     }
+     else{
+          return defaultValue;
+     }
+     
 }
 
 // reset
